@@ -1,0 +1,168 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #0079bf;
+    padding: 20px;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.board {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    height: 100%;
+}
+
+
+.column {
+    background-color: #ebecf0;
+    width: 300px;
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    max-height: 100%;
+}
+
+.column-header {
+    font-weight: bold;
+    margin-bottom: 10px;
+    padding-left: 5px;
+    color: #172b4d;
+    cursor: default;
+}
+
+.cards-list {
+    flex-grow: 1;
+    min-height: 50px; 
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-bottom: 10px;
+}
+
+
+.card {
+    background-color: #fff;
+    border-radius: 3px;
+    box-shadow: 0 1px 0 rgba(9, 30, 66, 0.25);
+    padding: 8px 10px;
+    position: relative;
+    cursor: grab;
+    word-wrap: break-word;
+}
+
+.card:hover {
+    background-color: #f4f5f7;
+}
+
+
+.card-delete {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    border-radius: 3px;
+    cursor: pointer;
+    opacity: 0;
+    color: #6b778c;
+    font-size: 14px;
+}
+
+.card-delete:hover {
+    background-color: rgba(9, 30, 66, 0.08);
+    color: #172b4d;
+}
+
+.card:hover .card-delete {
+    opacity: 1;
+}
+
+
+.add-btn {
+    color: #5e6c84;
+    padding: 6px 8px;
+    cursor: pointer;
+    border-radius: 3px;
+    margin-top: 5px;
+}
+
+.add-btn:hover {
+    background-color: rgba(9, 30, 66, 0.08);
+    color: #172b4d;
+}
+
+.add-form {
+    margin-top: 5px;
+}
+
+.add-input {
+    width: 100%;
+    resize: none;
+    border: none;
+    box-shadow: 0 1px 0 rgba(9, 30, 66, 0.25);
+    border-radius: 3px;
+    padding: 8px;
+    margin-bottom: 5px;
+    display: block;
+    font-family: inherit;
+}
+
+.add-controls {
+    display: flex;
+    align-items: center;
+}
+
+.add-submit {
+    background-color: #5aac44;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.add-cancel {
+    font-size: 20px;
+    margin-left: 10px;
+    cursor: pointer;
+    color: #6b778c;
+}
+
+
+
+.dragged {
+    position: absolute;
+    z-index: 9999;
+    pointer-events: none; 
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    transform: rotate(3deg); 
+    opacity: 0.9;
+    background: white;
+    cursor: grabbing;
+}
+
+
+body.grabbing {
+    cursor: grabbing !important;
+}
+
+body.grabbing .card {
+    cursor: grabbing !important;
+}
+
+
+.placeholder {
+    background-color: rgba(9, 30, 66, 0.08);
+    border-radius: 3px;
+    margin-bottom: 8px;
+}
